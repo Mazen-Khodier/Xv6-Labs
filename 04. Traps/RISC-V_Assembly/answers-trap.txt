@@ -1,0 +1,37 @@
+1- Which registers contain arguments to functions? For example, which register holds 13 in main's call to printf?
+* According the RISC-V Manual, Registers a0~a1 contain Function Arguments or Return Values while a2~a7 contain Function Arguments only.
+* Register a2 holds 13 in main's call.
+
+---
+
+2- Where is the call to function f in the assembly code for main? Where is the call to g? (Hint: the compiler may inline functions.)
+* Both f and g were not called in the assembly code for main.
+
+---
+
+3- At what address is the function printf located?
+* Address 0x630
+
+---
+
+4- What value is in the register ra just after the jalr to printf in main?
+* ra = PC + 4 = 34 + 4 = 38
+* Which is the address of the next instruction after the jalr instuction.
+
+---
+
+5- What is the output of the provided code?
+* HE110 World{Null}
+* i = 0x726c6400
+* y stays the same becuase it is printed as a hexadecimal number (not a string).
+
+---
+
+6- What is going to be printed after 'y='?
+* Output: y=5221
+* This is due to the fact that printf looks for the argument to be printed on the top of the stack. Consequently, the top of the stack is considered to be the argument to be printed when no argument is explicitly passed to printf.
+
+---
+
+
+

@@ -1,0 +1,23 @@
+Any entry in the hash table is in the form of a linked list data structure.
+In case two elements are added to the hash table with the same key,
+the second element is appended as the tail of the linked list at that key.
+
+With this information, consider the following case:
+Two threads want to add an entry to the hash table with the same key.
+The first thread read the entry and then the processor switched to the second thread.
+The second thread now reads the same entry as thread_1 and then, thread_2 naturally just adds a new node to the linked list at that key.
+Thread_1 now continues executing and as it read the old state of the hash table (before adding thread_2's key) it overwrites the node of thread_2.
+Thus, a key is now missing from this hash table.
+
+P1:
+  e->key = key;
+  e->value = value;
+P2:
+  e->key = key;
+  e->value = value;
+  e->next = n;
+  *p = e;
+P1:
+  e->next = n;
+  *p = e;
+
